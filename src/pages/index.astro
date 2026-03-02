@@ -1,50 +1,64 @@
 ---
-import Layout from "../layouts/Layout.astro";
+
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import { projects } from '../data/projects';
+import { services } from '../data/services';
+
+const latestProjects = [...projects]
+  .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+  .slice(0, 3);
+       
+const topServices = [...services].sort((a, b) => b.popularity - a.popularity).slice(0, 3);
+      
+const skills = ['Astro', 'TypeScript', 'Responsive Design', 'Performance', 'Accessibility', 'UI/UX'];
 ---
 
-<Layout title="index">
-Homepage comes soon
-<!--
-<section class="stage">
-    <div class="layout">
-      
-      <div class="col left">
-        <p class="job-title">job-bezeichnung</p>
-
-        <section class="name-card glass fly-in" style="--delay: 0ms">
-          <h1 class="name">
-            name<br />
-            name
-          </h1>
-        </section>
-
-        <section class="professions fly-in" style="--delay: 120ms">
-          <div class="profession-grid">
-            <div class="profession-pill glass">profession 1</div>
-            <div class="profession-pill glass">profession 2</div>
-            <div class="profession-pill glass">profession 3</div>
-            <div class="profession-pill glass">profession 4</div>
-          </div>
-        </section>
-      </div>
-
-      
-      <div class="col right">
-        <section class="picture-card glass fly-in" style="--delay: 60ms">
-          <img
-            class="picture"
-            src="https://picsum.photos/1100/800"
-            alt="Portrait Platzhalter"
-            loading="eager"
-            draggable="false"
-          />
-          <div class="picture-overlay">
-            <span class="picture-label">picture</span>
-          </div>
-        </section>
-      </div>
+<BaseLayout title="Home | Yannick Salm" description="Portfolio Startseite von Yannick Salm.">
+  <section class="hero">
+    <div>
+      <p class="eyebrow">Portfolio</p>
+      <h1>Yannick Salm</h1>
+      <p>
+        Ich entwickle moderne Websites mit einem klaren Fokus auf Design, Performance und guter
+        Nutzererfahrung. Diese Inhalte sind bewusst als Platzhalter vorbereitet und später einfach
+        erweiterbar.
+      </p>
     </div>
-
+    <img src="/images/avatar-placeholder.svg" alt="Platzhalter-Portrait von Yannick Salm" width="360" height="360" />
   </section>
--->
-</Layout>
+
+  <section>
+    <h2>Fähigkeiten</h2>
+    <ul class="chip-list" aria-label="Skills">
+      {skills.map((skill) => (
+        <li>{skill}</li>
+      ))}
+    </ul>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <h2>Neueste Projekte</h2>
+      <a href="/projects">Alle Projekte ansehen</a>
+    </div>
+    <div class="card-grid">
+      {latestProjects.map((project) => (
+        <ProjectCard project={project} />
+      ))}
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <h2>Services</h2>
+      <a href="/services">Alle Services ansehen</a>
+    </div>
+    <div class="card-grid">
+      {topServices.map((service) => (
+        <ServiceCard service={service} />
+      ))}
+    </div>
+  </section>
+</BaseLayout>

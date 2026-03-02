@@ -1,0 +1,33 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+export const prerender = true;
+
+import { projects } from '../../data/projects';
+
+export function getStaticPaths() {
+  return projects.map((project) => ({
+    params: { slug: project.slug },
+    props: { project }
+  }));
+}
+
+const { project } = Astro.props;
+---
+
+<BaseLayout title={`${project.title} | Projekte`} description={project.excerpt}>
+  <article class="detail">
+    <p><a href="/projects">← Back to Projects</a></p>
+    <p class="eyebrow">Projekt</p>
+    <h1>{project.title}</h1>
+    <p class="card-meta">{new Date(project.date).toLocaleDateString('de-CH')}</p>
+    <ul class="tag-list" aria-label="Projekt Tags">
+      {project.tags.map((tag: string) => (
+        <li>{tag}</li>
+      ))}
+    </ul>
+
+    {project.content.map((paragraph: string) => (
+      <p>{paragraph}</p>
+    ))}
+  </article>
+</BaseLayout>

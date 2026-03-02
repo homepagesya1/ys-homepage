@@ -1,0 +1,21 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ServiceCard from '../../components/ServiceCard.astro';
+import { services } from '../../data/services';
+
+const sortedServices = [...services].sort((a, b) => b.popularity - a.popularity);
+---
+
+<BaseLayout title="Services | Yannick Salm" description="Serviceübersicht von Yannick Salm.">
+  <section>
+    <p class="eyebrow">Services</p>
+    <h1>Alle Services</h1>
+    <p>Eine Übersicht meiner Leistungen, jeweils mit klarer Beschreibung und Detailseite.</p>
+  </section>
+
+  <section class="card-grid services-grid">
+    {sortedServices.map((service) => (
+      <ServiceCard service={service} />
+    ))}
+  </section>
+</BaseLayout>

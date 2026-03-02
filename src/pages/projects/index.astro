@@ -1,0 +1,23 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+import { projects } from '../../data/projects';
+
+const sortedProjects = [...projects].sort(
+  (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+);
+---
+
+<BaseLayout title="Projekte | Yannick Salm" description="Projektübersicht von Yannick Salm.">
+  <section>
+    <p class="eyebrow">Projekte</p>
+    <h1>Alle Projekte</h1>
+    <p>Eine Übersicht über aktuelle und vergangene Arbeiten in einem klaren, responsiven Grid.</p>
+  </section>
+
+  <section class="card-grid projects-grid">
+    {sortedProjects.map((project) => (
+      <ProjectCard project={project} />
+    ))}
+  </section>
+</BaseLayout>

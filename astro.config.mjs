@@ -1,7 +1,9 @@
-import { defineConfig } from "astro/config";
-import cloudflare from "@astrojs/cloudflare";
+
+import { defineConfig } from 'astro/config';
+import cloudflare from '@astrojs/cloudflare';
 
 export default defineConfig({
-  output: "server",
+  site: 'https://yannicksalm.ch',
+  output: 'server',
   adapter: cloudflare(),
 });

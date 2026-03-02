@@ -1,6 +1,6 @@
 # homepagesya1.github.io
 
-This is the Rpository for the Webseite of my own.
+This is the Repository for my personal website.
 
 soon reachable under yannicksalm.ch
 
