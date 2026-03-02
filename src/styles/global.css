@@ -126,6 +126,9 @@ section {
 
 .brand {
   font-weight: 700;
+  font-size: 1.8rem;       /* grösser als normaler Text */
+  line-height: 1;
+  letter-spacing: 0.05em;  /* optional für mehr Logo-Feeling */
   color: var(--color-heading);
 }
 
