@@ -1,0 +1,37 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+import { projects } from '../../data/projects';
+
+const sortedProjects = [...projects].sort((a, b) => {
+  const dateA = new Date(a.date.replace(/\./g, '-')).getTime();
+  const dateB = new Date(b.date.replace(/\./g, '-')).getTime();
+  return dateB - dateA;
+});
+---
+
+<BaseLayout
+  title="Projekte | Yannick Salm"
+  description="Übersicht meiner Projekte"
+>
+  <section class="projects_hero">
+    <div class="projects_container">
+      <p class="projects_eyebrow">Portfolio</p>
+      <h1 class="projects_page_title">Meine Projekte</h1>
+      <p class="projects_page_intro">
+        Hier findest du ausgewählte Projekte mit Hintergrund, Zielsetzung,
+        Umsetzung und Ergebnis.
+      </p>
+    </div>
+  </section>
+
+  <section class="projects_list_section">
+    <div class="projects_container">
+      <div class="projects_grid">
+        {sortedProjects.map((project) => (
+          <ProjectCard project={project} />
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
