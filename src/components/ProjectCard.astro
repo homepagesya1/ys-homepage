@@ -1,34 +1,34 @@
 ---
-import type { Project } from '../data/projects';
+import { Image } from 'astro:assets';
 
 interface Props {
-  project: Project;
+  project: any;
 }
 
 const { project } = Astro.props;
 ---
 
-<article class="card">
-  <a class="card-link" href={`/projects/${project.slug}`}>
-    {project.cover && (
-      <img
-        class="card-cover"
-        src={project.cover}
-        alt={`Vorschaubild für ${project.title}`}
-        loading="lazy"
-        width="800"
-        height="500"
-      />
-    )}
-    <div class="card-body">
-      <p class="card-meta">{new Date(project.date).toLocaleDateString('de-CH')}</p>
-      <h3>{project.title}</h3>
-      <p>{project.excerpt}</p>
-      <ul class="tag-list" aria-label="Tags">
-        {project.tags.map((tag) => (
-          <li>{tag}</li>
+<article class="projects_card">
+  <a href={`/projects/${project.slug}`} class="projects_card_link">
+    <Image
+      src={project.data.cover}
+      alt={project.data.title}
+      class="projects_card_image"
+    />
+
+    <div class="projects_card_body">
+      <p class="projects_card_meta">
+        {project.data.date.toLocaleDateString('de-CH')}
+      </p>
+
+      <h2 class="projects_card_title">{project.data.title}</h2>
+      <p class="projects_card_excerpt">{project.data.excerpt}</p>
+
+      <div class="projects_tag_list">
+        {project.data.tags.map((tag: string) => (
+          <span class="projects_tag">{tag}</span>
         ))}
-      </ul>
+      </div>
     </div>
   </a>
 </article>

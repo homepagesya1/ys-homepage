@@ -8,12 +8,11 @@ interface Props {
 const { service } = Astro.props;
 ---
 
-<article class="card">
-  <a class="card-link" href={`/services/${service.slug}`}>
-    <div class="card-body">
-      <p class="card-meta">Popularität: {service.popularity}</p>
-      <h3>{service.title}</h3>
-      <p>{service.excerpt}</p>
+<article class="service-card">
+  <a class="service-card__link" href={`/services/${service.slug}`}>
+    <div class="service-card__body">
+      <h3 class="service-card__title">{service.title}</h3>
+      <p class="service-card__excerpt">{service.excerpt}</p>
     </div>
   </a>
 </article>

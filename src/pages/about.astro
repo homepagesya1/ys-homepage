@@ -1,40 +1,194 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
+import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
-<BaseLayout title="About | Yannick Salm" description="Mehr über Yannick Salm und die Arbeitsweise.">
-  <section>
-    <p class="eyebrow">About</p>
-    <h1>Über mich</h1>
-    <p>
-      Diese Seite ist strukturell vorbereitet, damit Inhalte später schnell ergänzt werden können.
-      Das Layout ist bereits vollständig responsive und auf klare Lesbarkeit ausgelegt.
-    </p>
+<BaseLayout
+  title="About | Yannick Salm"
+  description="Mehr über Yannick Salm und die Arbeitsweise."
+>
+  <section class="about_hero container">
+    <div class="about_hero-image">
+      <img src="/images/Me_2.jpg" alt="Portrait von Yannick Salm" />
+    </div>
+
+    <div class="about_hero-text">
+      <h1>Yannick Salm</h1>
+      <h2>About Me</h2>
+
+      <p>
+        Ich bin angehender Informatiker mit grossem Interesse an Webentwicklung,
+        Cloud-Infrastruktur und Automatisierung. Ich entwickle moderne
+        Weblösungen und arbeite gerne an Projekten an der Schnittstelle zwischen
+        Design und Technik.
+      </p>
+
+      <div class="chip-list">
+        <a href="/projects" class="about_button"> Projekte ansehen </a>
+        <a href="/contact" class="about_button"> Kontakt </a>
+      </div>
+    </div>
   </section>
 
-  <section class="split">
-    <article class="surface-box">
-      <h2>Hintergrund</h2>
-      <p>
-        Hier kann später dein beruflicher Hintergrund stehen: Erfahrung, Spezialisierung,
-        Arbeitsweise und Fokus-Themen.
-      </p>
-    </article>
+  <section class="skills container">
+    <h2>Skills</h2>
 
-    <article class="surface-box">
-      <h2>Werte & Arbeitsstil</h2>
-      <p>
-        Platz für Aussagen zu Zusammenarbeit, Qualität, Kommunikation und der Art, wie du Projekte
-        planst und umsetzt.
-      </p>
-    </article>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <h3>Frontend</h3>
+        <p>HTML<br />CSS<br />JavaScript<br />Astro</p>
+      </div>
+
+      <div class="skill-card">
+        <h3>Backend</h3>
+        <p>Node.js<br />APIs<br />JSON</p>
+      </div>
+
+      <div class="skill-card">
+        <h3>Infrastructure</h3>
+        <p>GitHub<br />Cloudflare<br />Infomaniak/ Hostpoint<br />Windows</p>
+      </div>
+
+      <div class="skill-card">
+        <h3>Tools</h3>
+        <p>Git<br />GitHub<br />VS-Code<br />Astro</p>
+      </div>
+    </div>
   </section>
 
-  <section class="surface-box">
-    <h2>Vision</h2>
-    <p>
-      Dieser Abschnitt kann später deine langfristigen Ziele oder den Mehrwert deiner Arbeit für
-      Kunden und Projekte hervorheben.
-    </p>
+  <section class="timeline container">
+    <h2>Journey</h2>
+
+    <div class="timeline-item">
+      <span>Aktuell (2026)</span>
+      <p>Ready für neue Projekte</p>
+    </div>
+
+    <div class="timeline-item">
+      <span>Ganzes 2025</span>
+      <p>
+        Weiterentwickeln und Support für die <a
+          href="/projects/website-frauenverein-sarmenstorf"
+          class="underline">Frauenverein Webseite</a
+        >
+      </p>
+    </div>
+
+    <div class="timeline-item">
+      <span>Sommer 2025</span>
+      <p>Spiel-Webseite</p>
+    </div>
+
+    <div class="timeline-item">
+      <span>Sommer 2025</span>
+      <p>Cambridge English First Certificate</p>
+    </div>
+
+    <div class="timeline-item">
+      <span>Frühling 2025</span>
+      <p>Aufbau & Release Frauenverein Webseite</p>
+    </div>
+
+    <div class="timeline-item">
+      <span>Ganzes 2024</span>
+      <p>Rumprobieren mit Wordpress & Angefangen mit Coden</p>
+    </div>
+
+    <div class="timeline-item">
+      <span>Sommer 2023</span>
+      <p>
+        Start meiner Lehre als Informatiker Fachrichtung Plattformentwicklung
+      </p>
+    </div>
+
+    <div class="timeline-item">
+      <span>Frühling 2022</span>
+      <p>Erster Kontakt mit Computern und Python (Programiersprache)</p>
+    </div>
+  </section>
+
+  <section class="about_projects container">
+    <h2>Featured Projects</h2>
+
+    <div class="about_project-grid">
+      <div class="about_project-card">
+        <h3>Webseite des Frauenverein-Sarmenstorf</h3>
+        <p>
+          Dies ist definitiv bis jetzt mein gröstes Projekt. Eine Webseite für
+          einen Verein mit Leidenschaft und Herzblut. Schaue dir das Projekt
+          doch genauer an: <a
+            href="/projects/website-frauenverein-sarmenstorf"
+            class="underline">Frauenverein-Sarmenstorf</a
+          >
+        </p>
+      </div>
+
+      <div class="about_project-card">
+        <h3>Projekt B</h3>
+        <p>Kurze Beschreibung des Projekts.</p>
+      </div>
+
+      <div class="about_project-card">
+        <h3>Projekt C</h3>
+        <p>Kurze Beschreibung des Projekts.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="more">
+    <div class="container">
+      <h2>More About Me</h2>
+      <p>
+        Ich bin aktuell in meiner Ausbildung zum Informatiker mit Fachrichtung
+        Plattformentwicklung und befinde mich im 3. Lehrjahr. Ich interessiere
+        mich sehr für das Entwickeln von Webseiten. Privat habe ich damit
+        angefangen, indem ich die Webseite des
+        <a
+          href="https://frauenverein-sarmenstorf.ch"
+          class="underline"
+          target="_blank"
+          rel="noopener noreferrer">Frauenverein Sarmenstorf</a
+        >
+        komplett
+        <a href="/projects/website-frauenverein-sarmenstorf" class="underline"
+          >neu programmiert</a
+        >
+        habe. Anschliessend hatte ich immer wieder kleine Visionen und habe diese
+        umgesetzt. So zum Beispiel eine
+        <a
+          href="https://thisorthat-phi.vercel.app"
+          class="underline"
+          target="_blank"
+          rel="noopener noreferrer">Spiel-Webseite</a
+        >
+        oder eine
+        <a
+          href="https://note.yannicksalm.ch"
+          class="underline"
+          target="_blank"
+          rel="noopener noreferrer">Notizen-Webseite</a
+        >. Ich möchte nun meine Fähigkeiten erweitern und meine Tätigkeiten
+        ausbauen.<br /><br />
+
+        Ebenfalls ist Sport für mich ein wichtiger Teil meines Lebens. Dadurch
+        fühle ich mich wesentlich besser und kann produktiver durch den Tag
+        gehen.<br /><br />
+
+        Meine Schwäche: Das ist definitiv der Schlaf. Ich arbeite sehr gerne bis
+        in die Nacht, der nächste Tag wird dann aber eine Herausforderung bei
+        weniger als 8 Stunden Schlaf.<br /><br />
+
+        Meine Stärke: Wenn ich ein Projekt habe, das mir Spass macht, ziehe ich
+        durch, bis es mir oder dem Auftraggeber gefällt.<br /><br />
+
+        Wenn dies dein Interesse geweckt hat, melde dich gerne :)
+      </p>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="container">
+      <h2>Interesiert?</h2>
+      <a href="/contact" class="about_button"> Kontakt </a>
+    </div>
   </section>
 </BaseLayout>

@@ -1,23 +1,35 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ProjectCard from '../../components/ProjectCard.astro';
-import { projects } from '../../data/projects';
+import { getCollection } from 'astro:content';
 
-const sortedProjects = [...projects].sort(
-  (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+const projects = (await getCollection('projects')).sort(
+  (a, b) => b.data.date.getTime() - a.data.date.getTime()
 );
 ---
 
-<BaseLayout title="Projekte | Yannick Salm" description="Projektübersicht von Yannick Salm.">
-  <section>
-    <p class="eyebrow">Projekte</p>
-    <h1>Alle Projekte</h1>
-    <p>Eine Übersicht über aktuelle und vergangene Arbeiten in einem klaren, responsiven Grid.</p>
+<BaseLayout
+  title="Projekte | Yannick Salm"
+  description="Übersicht meiner Projekte"
+>
+  <section class="projects_hero">
+    <div class="projects_container">
+      <p class="projects_eyebrow">Portfolio</p>
+      <h1 class="projects_page_title">Meine Projekte</h1>
+      <p class="projects_page_intro">
+        Hier findest du ausgewählte Projekte mit Hintergrund, Zielsetzung,
+        Umsetzung und Ergebnis.
+      </p>
+    </div>
   </section>
 
-  <section class="card-grid projects-grid">
-    {sortedProjects.map((project) => (
-      <ProjectCard project={project} />
-    ))}
+  <section class="projects_list_section">
+    <div class="projects_container">
+      <div class="projects_grid">
+        {projects.map((project) => (
+          <ProjectCard project={project} />
+        ))}
+      </div>
+    </div>
   </section>
 </BaseLayout>

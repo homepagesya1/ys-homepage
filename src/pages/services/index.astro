@@ -10,7 +10,7 @@ const sortedServices = [...services].sort((a, b) => b.popularity - a.popularity)
   <section>
     <p class="eyebrow">Services</p>
     <h1>Alle Services</h1>
-    <p>Eine Übersicht meiner Leistungen, jeweils mit klarer Beschreibung und Detailseite.</p>
+    <h2>Web</h2>
   </section>
 
   <section class="card-grid services-grid">
@@ -18,4 +18,5 @@ const sortedServices = [...services].sort((a, b) => b.popularity - a.popularity)
       <ServiceCard service={service} />
     ))}
   </section>
+  <h2>Geplant</h2>
 </BaseLayout>

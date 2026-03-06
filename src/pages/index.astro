@@ -1,40 +1,50 @@
 ---
-
-import BaseLayout from '../layouts/BaseLayout.astro';
-import ProjectCard from '../components/ProjectCard.astro';
-import ServiceCard from '../components/ServiceCard.astro';
-import { projects } from '../data/projects';
-import { services } from '../data/services';
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+import ServiceCard from "../components/ServiceCard.astro";
+import { projects } from "../data/projects";
+import { services } from "../data/services";
 
 const latestProjects = [...projects]
   .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
   .slice(0, 3);
-       
-const topServices = [...services].sort((a, b) => b.popularity - a.popularity).slice(0, 3);
-      
-const skills = ['Astro', 'TypeScript', 'Responsive Design', 'Performance', 'Accessibility', 'UI/UX'];
+
+const topServices = [...services]
+  .sort((a, b) => b.popularity - a.popularity)
+  .slice(0, 3);
+
+const skills = ["UI / UX", "Webseiten", "Handwerk", "System Engineering"];
 ---
 
-<BaseLayout title="Home | Yannick Salm" description="Portfolio Startseite von Yannick Salm.">
+<BaseLayout
+  title="Home | Yannick Salm"
+  description="Portfolio Startseite von Yannick Salm."
+>
   <section class="hero">
     <div>
       <p class="eyebrow">Portfolio</p>
       <h1>Yannick Salm</h1>
       <p>
-        Ich entwickle moderne Websites mit einem klaren Fokus auf Design, Performance und guter
-        Nutzererfahrung. Diese Inhalte sind bewusst als Platzhalter vorbereitet und später einfach
-        erweiterbar.
+        Ich bin Yannick, angehender Informatiker mit Leidenschaft für Design und
+        saubere Lösungen. Struktur, Performance und Disziplin prägen meine
+        Arbeit – im Projekt wie im Sport.
       </p>
     </div>
-    <img src="/images/avatar-placeholder.svg" alt="Platzhalter-Portrait von Yannick Salm" width="360" height="360" />
+    <div class="profile-frame">
+      <img src="/images/Me.JPG" alt="Portrait von Yannick Salm" />
+    </div>
   </section>
 
   <section>
     <h2>Fähigkeiten</h2>
+    <p>
+      Meine Fähigkeiten verbinden Gestaltung, technische Umsetzung und
+      praktisches Denken. Von der Konzeption digitaler Lösungen über die
+      Entwicklung von Websites bis hin zu systemtechnischen Grundlagen arbeite
+      ich strukturiert und lösungsorientiert.
+    </p>
     <ul class="chip-list" aria-label="Skills">
-      {skills.map((skill) => (
-        <li>{skill}</li>
-      ))}
+      {skills.map((skill) => <li>{skill}</li>)}
     </ul>
   </section>
 
@@ -44,9 +54,7 @@ const skills = ['Astro', 'TypeScript', 'Responsive Design', 'Performance', 'Acce
       <a href="/projects">Alle Projekte ansehen</a>
     </div>
     <div class="card-grid">
-      {latestProjects.map((project) => (
-        <ProjectCard project={project} />
-      ))}
+      {latestProjects.map((project) => <ProjectCard project={project} />)}
     </div>
   </section>
 
@@ -55,10 +63,9 @@ const skills = ['Astro', 'TypeScript', 'Responsive Design', 'Performance', 'Acce
       <h2>Services</h2>
       <a href="/services">Alle Services ansehen</a>
     </div>
+    <br />
     <div class="card-grid">
-      {topServices.map((service) => (
-        <ServiceCard service={service} />
-      ))}
+      {topServices.map((service) => <ServiceCard service={service} />)}
     </div>
   </section>
 </BaseLayout>

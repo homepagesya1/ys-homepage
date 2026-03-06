@@ -1,9 +1,10 @@
 ---
 const navItems = [
-  { href: '/', label: 'Home' },
-  { href: '/about', label: 'About' },
-  { href: '/projects', label: 'Projekte' },
-  { href: '/services', label: 'Services' }
+  { href: "/", label: "Home" },
+  { href: "/about", label: "About" },
+  { href: "/projects", label: "Projekte" },
+  { href: "/services", label: "Services" },
+  { href: "/contact", label: "Kontakt" },
 ];
 
 const currentPath = Astro.url.pathname;
@@ -13,73 +14,108 @@ const currentPath = Astro.url.pathname;
   <div class="container header-inner">
     <a class="brand" href="/">YS.</a>
 
-    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav">
-      ☰
+    <button
+      class="menu-toggle"
+      type="button"
+      aria-expanded="false"
+      aria-controls="mobile-nav"
+    >
+      <span class="hamburger"></span>
       <span class="sr-only">Menü öffnen</span>
     </button>
 
     <nav class="desktop-nav" aria-label="Hauptnavigation">
       <ul>
-        {navItems.map((item) => (
-          <li>
-            <a class={currentPath === item.href ? 'active' : ''} href={item.href}>
-              {item.label}
-            </a>
-          </li>
-        ))}
+        {
+          navItems.map((item) => (
+            <li>
+              <a
+                class={currentPath === item.href ? "active" : ""}
+                href={item.href}
+              >
+                {item.label}
+              </a>
+            </li>
+          ))
+        }
       </ul>
     </nav>
 
-    <button class="theme-toggle" type="button" aria-label="Zwischen Light und Dark Mode wechseln">
-      Theme: Dark
+    <button class="theme-toggle" aria-label="Theme wechseln">
+      <img class="icon-dark" src="/moon.png" alt="" />
+      <img class="icon-light" src="/sun.png" alt="" />
     </button>
   </div>
 
   <nav id="mobile-nav" class="mobile-nav" aria-label="Mobile Navigation" hidden>
     <ul class="container">
-      {navItems.map((item) => (
-        <li>
-          <a class={currentPath === item.href ? 'active' : ''} href={item.href}>
-            {item.label}
-          </a>
-        </li>
-      ))}
+      {
+        navItems.map((item) => (
+          <li>
+            <a
+              class={currentPath === item.href ? "active" : ""}
+              href={item.href}
+            >
+              {item.label}
+            </a>
+          </li>
+        ))
+      }
     </ul>
   </nav>
 </header>
 
 <script>
   const root = document.documentElement;
-  const storageKey = 'theme-preference';
+  const storageKey = "theme-preference";
 
   /** @param {'dark' | 'light'} theme */
   const applyTheme = (theme) => {
-    root.setAttribute('data-theme', theme);
+    root.setAttribute("data-theme", theme);
     localStorage.setItem(storageKey, theme);
 
-    document.querySelectorAll('.theme-toggle').forEach((button) => {
-      button.textContent = `Theme: ${theme === 'dark' ? 'Dark' : 'Light'}`;
+    // optional: aria-label passend halten (ohne den Button-Inhalt zu zerstören)
+    document.querySelectorAll(".theme-toggle").forEach((button) => {
+      const next = theme === "dark" ? "Light" : "Dark";
+      button.setAttribute("aria-label", `Theme wechseln (zu ${next})`);
     });
   };
 
   const savedTheme = localStorage.getItem(storageKey);
-  applyTheme(savedTheme === 'light' ? 'light' : 'dark');
+  applyTheme(savedTheme === "light" ? "light" : "dark");
 
-  document.querySelectorAll('.theme-toggle').forEach((button) => {
-    button.addEventListener('click', () => {
-      const nextTheme = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+  document.querySelectorAll(".theme-toggle").forEach((button) => {
+    button.addEventListener("click", () => {
+      const nextTheme =
+        root.getAttribute("data-theme") === "dark" ? "light" : "dark";
       applyTheme(nextTheme);
     });
   });
 
-  const menuToggle = document.querySelector('.menu-toggle');
-  const mobileNav = document.getElementById('mobile-nav');
+  const menuToggle = document.querySelector(".menu-toggle");
+  const mobileNav = document.getElementById("mobile-nav");
 
   if (menuToggle && mobileNav) {
-    menuToggle.addEventListener('click', () => {
-      const expanded = menuToggle.getAttribute('aria-expanded') === 'true';
-      menuToggle.setAttribute('aria-expanded', String(!expanded));
-      mobileNav.hidden = expanded;
+    menuToggle.addEventListener("click", () => {
+      const expanded = menuToggle.getAttribute("aria-expanded") === "true";
+      const willOpen = !expanded;
+
+      menuToggle.setAttribute("aria-expanded", String(willOpen));
+
+      if (willOpen) {
+        mobileNav.hidden = false; // erst sichtbar machen
+        requestAnimationFrame(() => {
+          mobileNav.classList.add("is-open"); // dann animieren
+        });
+      } else {
+        mobileNav.classList.remove("is-open"); // animiert zu
+        const onEnd = (e) => {
+          if (e.propertyName !== "max-height") return;
+          mobileNav.hidden = true; // nach Animation ausblenden
+          mobileNav.removeEventListener("transitionend", onEnd);
+        };
+        mobileNav.addEventListener("transitionend", onEnd);
+      }
     });
   }
 </script>

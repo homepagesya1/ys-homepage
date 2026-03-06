@@ -15,34 +15,107 @@ const { service } = Astro.props;
 ---
 
 <BaseLayout title={`${service.title} | Services`} description={service.excerpt}>
-  <article class="detail">
-    <p><a href="/services">← Back to Services</a></p>
-    <p class="eyebrow">Service</p>
-    <h1>{service.title}</h1>
-    <p>{service.content.intro}</p>
+  <article class="services_detail">
+    <div class="services_backlink">
+      <a href="/services">← Zurück zu Services</a>
+    </div>
 
-    <section class="surface-box">
-      <h2>Was ist drin</h2>
-      <ul>
-        {service.deliverables.map((item: string) => (
+    <section class="services_hero">
+      <p class="services_eyebrow">{service.hero.eyebrow}</p>
+      <h1 class="services_title">{service.title}</h1>
+      <p class="services_subtitle">{service.hero.subtitle}</p>
+      <p class="services_intro">{service.hero.intro}</p>
+
+      <div class="services_actions">
+        <a class="services_button" href={service.hero.ctaHref}>
+          {service.hero.ctaLabel}
+        </a>
+      </div>
+    </section>
+
+    <section class="services_section services_panel">
+      <h2 class="services_section-title">{service.audience.title}</h2>
+
+      <ul class="services_chip-list">
+        {service.audience.items.map((item: string) => (
           <li>{item}</li>
         ))}
       </ul>
+
+      <p class="services_text">{service.audience.text}</p>
     </section>
 
-    <section class="surface-box">
-      <h2>Ablauf</h2>
-      <ol>
-        {service.content.process.map((step: string) => (
-          <li>{step}</li>
+    <section class="services_split">
+      <div class="services_panel">
+        <h2 class="services_section-title">{service.included.title}</h2>
+        <ul class="services_list">
+          {service.included.items.map((item: string) => (
+            <li>{item}</li>
+          ))}
+        </ul>
+      </div>
+
+      <div class="services_panel">
+        <h2 class="services_section-title">{service.optional.title}</h2>
+        <p class="services_text">{service.optional.text}</p>
+        <ul class="services_list">
+          {service.optional.items.map((item: string) => (
+            <li>{item}</li>
+          ))}
+        </ul>
+      </div>
+    </section>
+
+    <section class="services_section services_panel">
+      <h2 class="services_section-title">{service.process.title}</h2>
+
+      <div class="services_steps">
+        {service.process.steps.map((step: { title: string; text: string }) => (
+          <div class="services_step">
+            <h3 class="services_step-title">{step.title}</h3>
+            <p class="services_step-text">{step.text}</p>
+          </div>
         ))}
-      </ol>
+      </div>
     </section>
 
-    <section class="surface-box cta-box">
-      <h2>Nächster Schritt</h2>
-      <p>{service.content.cta}</p>
-      <a class="button" href="mailto:hello@yannicksalm.ch">Jetzt Kontakt aufnehmen</a>
+    <section class="services_section services_panel">
+      <h2 class="services_section-title">{service.references.title}</h2>
+      <p class="services_text">{service.references.text}</p>
+      <a class="services_text-link" href={service.references.href}>
+        {service.references.label}
+      </a>
+    </section>
+
+    <section class="services_section services_panel">
+      <h2 class="services_section-title">{service.benefits.title}</h2>
+
+      <div class="services_benefits">
+        {service.benefits.items.map((item: { title: string; text: string }) => (
+          <div class="services_benefit">
+            <h3 class="services_benefit-title">{item.title}</h3>
+            <p class="services_benefit-text">{item.text}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="services_section services_panel">
+      <h2 class="services_section-title">{service.pricing.title}</h2>
+
+      <div class="services_pricing-text">
+        {service.pricing.paragraphs.map((paragraph: string) => (
+          <p>{paragraph}</p>
+        ))}
+      </div>
+    </section>
+
+    <section class="services_section services_cta-panel">
+      <h2 class="services_section-title">{service.cta.title}</h2>
+      <p class="services_text">{service.cta.text}</p>
+      <a class="services_button" href={service.cta.buttonHref}>
+        {service.cta.buttonLabel}
+      </a>
     </section>
   </article>
 </BaseLayout>

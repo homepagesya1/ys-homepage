@@ -1,33 +1,78 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-export const prerender = true;
+import { getCollection, render, type CollectionEntry } from 'astro:content';
+import { Image } from 'astro:assets';
 
-import { projects } from '../../data/projects';
+export async function getStaticPaths() {
+  const projects = await getCollection('projects');
 
-export function getStaticPaths() {
   return projects.map((project) => ({
     params: { slug: project.slug },
-    props: { project }
+    props: { project },
   }));
 }
 
-const { project } = Astro.props;
+type Props = {
+  project: CollectionEntry<'projects'>;
+};
+
+const { project } = Astro.props as Props;
+const { Content } = await render(project);
 ---
 
-<BaseLayout title={`${project.title} | Projekte`} description={project.excerpt}>
-  <article class="detail">
-    <p><a href="/projects">← Back to Projects</a></p>
-    <p class="eyebrow">Projekt</p>
-    <h1>{project.title}</h1>
-    <p class="card-meta">{new Date(project.date).toLocaleDateString('de-CH')}</p>
-    <ul class="tag-list" aria-label="Projekt Tags">
-      {project.tags.map((tag: string) => (
-        <li>{tag}</li>
-      ))}
-    </ul>
+<BaseLayout
+  title={`${project.data.title} | Projekte`}
+  description={project.data.excerpt}
+>
+  <article class="projects_detail">
+    <div class="projects_container">
+      <p class="projects_back_link_wrap">
+        <a href="/projects" class="projects_back_link">← Zurück zu den Projekten</a>
+      </p>
 
-    {project.content.map((paragraph: string) => (
-      <p>{paragraph}</p>
-    ))}
+      <p class="projects_eyebrow">Projekt</p>
+      <h1 class="projects_detail_title">{project.data.title}</h1>
+      <p class="projects_detail_excerpt">{project.data.excerpt}</p>
+
+      <div class="projects_detail_meta">
+        <span>{project.data.date.toLocaleDateString('de-CH')}</span>
+      </div>
+
+      <div class="projects_tag_list projects_tag_list_detail">
+        {project.data.tags.map((tag) => (
+          <span class="projects_tag">{tag}</span>
+        ))}
+      </div>
+
+      <div class="projects_cover_wrap">
+        <Image
+          src={project.data.cover}
+          alt={project.data.title}
+          class="projects_cover_image"
+        />
+      </div>
+
+      <div class="projects_content prose">
+        <Content />
+      </div>
+
+      {project.data.gallery && project.data.gallery.length > 0 && (
+        <section class="projects_gallery_section">
+          <h2 class="projects_gallery_title">Einblicke</h2>
+
+          <div class="projects_gallery_grid">
+            {project.data.gallery.map((image, index) => (
+              <div class="projects_gallery_item">
+                <Image
+                  src={image}
+                  alt={`${project.data.title} Screenshot ${index + 1}`}
+                  class="projects_gallery_image"
+                />
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+    </div>
   </article>
 </BaseLayout>
