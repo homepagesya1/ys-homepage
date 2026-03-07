@@ -179,7 +179,7 @@ section {
 
 .brand {
   font-weight: 700;
-  font-size: 1.8rem;
+  font-size: 2.5rem;
   /* grösser als normaler Text */
   line-height: 1;
   letter-spacing: 0.05em;
@@ -1125,6 +1125,7 @@ section {
 .services_text {
   margin: 0;
   color: var(--color-text);
+  padding-bottom: 1.5rem;
 }
 
 .services_text-link {
@@ -1300,7 +1301,7 @@ section {
 .projects_meta-item {
   padding: 1rem;
   border: 1px solid var(--color-border);
-  border-radius: 1rem;
+  border-radius: var(--radius-main);
   background: var(--color-surface-soft);
 }
 
@@ -1321,7 +1322,7 @@ section {
 
 .projects_hero-image-wrap {
   border: 1px solid var(--color-border);
-  border-radius: 1.5rem;
+  border-radius: var(--radius-main);
   overflow: hidden;
   background: var(--color-surface-soft);
   height: 515px;
@@ -1359,7 +1360,7 @@ section {
 .projects_card {
   padding: 1.4rem;
   border: 1px solid var(--color-border);
-  border-radius: 1.15rem;
+  border-radius: var(--radius-main);
   background: var(--color-surface-soft);
 }
 
@@ -1384,7 +1385,7 @@ section {
 .projects_feature {
   padding: 1.4rem;
   border: 1px solid var(--color-border);
-  border-radius: 1.15rem;
+  border-radius: var(--radius-main);
   background: var(--color-surface-soft);
   transition: transform 180ms ease, border-color 180ms ease;
 }
@@ -1404,7 +1405,7 @@ section {
 .projects_result-box {
   padding: 1.5rem;
   border: 1px solid var(--color-border);
-  border-radius: 1.25rem;
+  border-radius: var(--radius-main);
   background: linear-gradient(
     180deg,
     var(--color-surface-soft),
@@ -1426,7 +1427,7 @@ section {
 
 .projects_ba-card {
   border: 1px solid var(--color-border);
-  border-radius: 1.25rem;
+  border-radius: var(--radius-main);
   background: var(--color-surface-soft);
   overflow: hidden;
 }
@@ -1483,7 +1484,7 @@ section {
   gap: 0.5rem;
   padding: 0.9rem 1.15rem;
   border: 1px solid var(--color-border);
-  border-radius: 999px;
+  border-radius: var(--radius-main);
   background: var(--color-surface-soft);
   color: var(--color-heading);
   text-decoration: none;
@@ -1539,7 +1540,7 @@ section {
   max-width: 520px;
   background: var(--color-surface, #111);
   border: 1px solid var(--color-border, rgba(255, 255, 255, 0.1));
-  border-radius: 1rem;
+  border-radius: var(--radius-main);
   padding: 2rem;
   text-align: center;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
