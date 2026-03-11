@@ -12,7 +12,7 @@ export const projects: Project[] = [
   {
     title: 'Webseite Frauenverein-Sarmenstorf',
     slug: 'website-frauenverein-sarmenstorf',
-    excerpt: 'Ein modernes Redesign einer persönlichen Portfolio-Website mit Fokus auf UX.',
+    excerpt: 'Modernes Redesign der Vereinswebseite mit Fokus auf Benutzerfreundlichkeit.',
     date: '2026.03.01',
     tags: ['HTML / CSS', 'UI / UX', 'Website'],
     cover: '/images/website-frauenverein-sarmenstorf.png',
@@ -21,7 +21,7 @@ export const projects: Project[] = [
   {
     title: '"Quiz"-Webseite This-or-That',
     slug: 'this-or-that',
-    excerpt: 'Eine Art "Quiz" die man zu zweit spielen kann.',
+    excerpt: 'Eine Art Quiz, das man zu zweit spielen kann.',
     date: '2025-07-27',
     tags: ['Log In', 'API', 'Vercel', 'HTML, CSS, JS'],
     cover: '/images/this-or-that_1.png',
@@ -30,7 +30,7 @@ export const projects: Project[] = [
   {
     title: 'Home-Server',
     slug: 'home-server',
-    excerpt: 'Installation Proxmox auf meinem alten Destop-PC für Tests.',
+    excerpt: 'Installation von Proxmox auf meinem alten Desktop-PC für Testzwecke.',
     date: '2025-10-15',
     tags: ['Performance', 'Core Web Vitals', 'Accessibility'],
     cover: '/images/proxmox_1.1.png',

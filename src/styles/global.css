@@ -561,6 +561,24 @@ section {
   align-items: center;
 }
 
+.footer_main-links {
+  display: flex;
+  gap: 1.2rem;
+  list-style: none;
+  padding: 0;
+  margin: 0 0 0.5rem 0;
+}
+
+.footer_legal-links {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
 .sr-only {
   position: absolute;
   width: 1px;
@@ -685,7 +703,7 @@ section {
 
 .about_hero-text p {
   margin: 0;
-  max-width: 32ch;
+
 }
 
 .about_actions {
@@ -1538,7 +1556,7 @@ section {
 .contact_modal-content {
   width: 100%;
   max-width: 520px;
-  background: var(--color-surface, #111);
+  background: var(--color-surface-soft, #111);
   border: 1px solid var(--color-border, rgba(255, 255, 255, 0.1));
   border-radius: var(--radius-main);
   padding: 2rem;
@@ -1584,5 +1602,72 @@ section {
 
 .contact_modal-close:active {
   transform: translateY(0);
+}
+/* ====================================================== */
+
+/* ====================================================== */
+  /* Socials auf index */
+/* ====================================================== */
+.socials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+  margin-top: 1.5rem;
+}
+
+.socials a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-main);
+  border: 1px solid var(--color-border);
+
+  background: var(--color-surface-soft);
+  color: var(--color-heading);
+  text-decoration: none;
+  font-weight: 600;
+
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    background 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.socials a:hover {
+  transform: translateY(-2px);
+  border-color: var(--color-heading);
+  background: var(--color-surface);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.22);
+}
+
+.socials a:active {
+  transform: translateY(0);
+}
+
+.socials img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  display: block;
+  flex-shrink: 0;
+}
+
+.socials span {
+  line-height: 1;
+  color: var(--color-heading);
+}
+
+@media (max-width: 700px) {
+  .socials {
+    gap: 0.75rem;
+  }
+
+  .socials a {
+    width: 100%;
+    justify-content: center;
+  }
 }
 /* ====================================================== */
