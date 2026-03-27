@@ -1,7 +1,7 @@
 ---
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import '../styles/global.css';
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import "../styles/global.css";
 
 interface Props {
   title?: string;
@@ -9,8 +9,8 @@ interface Props {
 }
 
 const {
-  title = 'Yannick Salm | Portfolio',
-  description = 'Portfolio-Website mit Projekten, Services und Informationen über Yannick Salm.'
+  title = "Yannick Salm | Portfolio",
+  description = "Portfolio-Website mit Projekten, Services und Informationen über Yannick Salm.",
 } = Astro.props;
 ---
 
@@ -19,13 +19,27 @@ const {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="google-site-verification" content="cX6oCTTPm3i5UgMX3uBYMSz7mX8SjAlipyUHRTKHicY" />
+    <meta
+      name="google-site-verification"
+      content="cX6oCTTPm3i5UgMX3uBYMSz7mX8SjAlipyUHRTKHicY"
+    />
     <meta name="description" content={description} />
     <title>{title}</title>
     <link rel="icon" type="image/png" href="/favicon.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
     <script is:inline>
-      const savedTheme = localStorage.getItem('theme-preference');
-      document.documentElement.setAttribute('data-theme', savedTheme === 'light' ? 'light' : 'dark');
+      const savedTheme = localStorage.getItem("theme-preference");
+      document.documentElement.setAttribute(
+        "data-theme",
+        savedTheme === "light" ? "light" : "dark",
+      );
     </script>
   </head>
   <body>

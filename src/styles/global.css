@@ -64,6 +64,15 @@
 }
 /* ================== */
 
+/* =========
+   Font
+   ========= */
+
+:root {
+  --font-main: 'Source Sans 3', sans-serif;
+}
+/* ================== */
+
 * {
   box-sizing: border-box;
 }
@@ -76,7 +85,7 @@ body {
 }
 
 body {
-  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  font-family: var(--font-main);
   background: var(--color-bg);
   color: var(--color-text);
   line-height: 1.6;
@@ -103,8 +112,8 @@ button:focus-visible {
 
 h1 {
   color: var(--color-heading);
-  line-height: 1.2;
-  font-size: 3rem;
+  line-height: 0.5;
+  font-size: 4rem;
 }
 
 h2,

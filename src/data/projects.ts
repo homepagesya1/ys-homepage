@@ -32,7 +32,7 @@ export const projects: Project[] = [
     slug: 'home-server',
     excerpt: 'Installation von Proxmox auf meinem alten Desktop-PC für Testzwecke.',
     date: '2025-10-15',
-    tags: ['Performance', 'Core Web Vitals', 'Accessibility'],
+    tags: ['Performance', 'Testing', 'Accessibility'],
     cover: '/images/proxmox_1.1.png',
 
   },
@@ -43,6 +43,15 @@ export const projects: Project[] = [
     date: '2025',
     tags: [],
     cover: '/images/project-b.svg',
+
+  },
+  {
+    title: 'Eigener Workout Tracker',
+    slug: 'ys-workout',
+    excerpt: 'Mein eigener Unlimitierter Workout Tracker.',
+    date: '2026.03.20',
+    tags: ['HTML / CSS', 'UI / UX', 'Website', 'Java Script'],
+    cover: '/images/ys-workout_1.png',
 
   }
 ];

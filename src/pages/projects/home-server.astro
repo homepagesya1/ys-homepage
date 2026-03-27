@@ -1,35 +1,212 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import "../../styles/projects/home-server.css";
 ---
 
 <BaseLayout
-    title="Projekt Frauenverein Sarmenstorf | Yannick Salm"
-    description="Projektseite zur Neugestaltung der Website des Frauenvereins Sarmenstorf."
+    title="Projekt Home Server | Yannick Salm"
+    description="Projektseite zur Einrichtung eines Home Servers für verschiedene Test- und Hosting-Zwecke."
 >
-    <p class="projects_backlink">
+    <p class="hs_project_backlink">
         <a href="/projects">← Zurück zu Projects</a>
     </p>
 
-    <section class="projects_hero">
-        <div class="projects_hero-content">
-            <p class="projects_eyebrow">Projekt</p>
-            <h1 class="projects_title">Kommt Bald</h1>
-            <p class="projects_intro"></p>
+    <section class="hs_project_hero">
+        <div class="hs_project_hero_content">
+            <p class="hs_project_eyebrow">Projekt</p>
+            <h1 class="hs_project_title">Home Server Umgebung</h1>
+            <p class="hs_project_intro">
+                In diesem Projekt habe ich eine eigene Home-Server-Umgebung
+                aufgebaut, um verschiedene Dienste lokal zu betreiben, neue
+                Technologien zu testen und praktische Erfahrungen im Bereich
+                System Engineering und Containerisierung zu sammeln.
+            </p>
 
-            <div class="projects_meta">
-                <div class="projects_meta-item">
-                    <span class="projects_meta-label"> </span>
-                    <span class="projects_meta-value"> </span>
+            <div class="hs_project_meta">
+                <div class="hs_project_meta_item">
+                    <span class="hs_project_meta_label">Bereich</span>
+                    <span class="hs_project_meta_value">
+                        System Engineering, Server
+                    </span>
                 </div>
-                <div class="projects_meta-item">
-                    <span class="projects_meta-label"> </span>
-                    <span class="projects_meta-value"> </span>
+                <div class="hs_project_meta_item">
+                    <span class="hs_project_meta_label">Rolle</span>
+                    <span class="hs_project_meta_value"> Setup, Testing </span>
                 </div>
-                <div class="projects_meta-item">
-                    <span class="projects_meta-label">Status</span>
-                    <span class="projects_meta-value">Testing</span>
+                <div class="hs_project_meta_item">
+                    <span class="hs_project_meta_label">Status</span>
+                    <span class="hs_project_meta_value">In Betrieb</span>
                 </div>
             </div>
+        </div>
+
+        <div class="hs_project_hero_media">
+            <img
+                src="/images/proxmox_1.1.png"
+                alt="Vorschau Home Server Projekt"
+                class="hs_project_hero_image"
+            />
+        </div>
+    </section>
+
+    <section class="hs_project_section">
+        <div class="hs_project_section_head">
+            <p class="hs_project_eyebrow">Über das Projekt</p>
+            <h2 class="hs_project_section_title">Ausgangslage und Ziel</h2>
+        </div>
+
+        <div class="hs_project_info_grid">
+            <article class="hs_project_card">
+                <h3 class="hs_project_card_title">Ausgangslage</h3>
+                <p class="hs_project_text">
+                    Für viele Tests und kleinere Projekte fehlte eine flexible
+                    Umgebung, in der neue Tools und Services unabhängig von
+                    produktiven Systemen ausprobiert werden können. Zudem
+                    bestand der Wunsch, eigene Dienste lokal zu hosten und
+                    besser zu verstehen, wie moderne Infrastruktur aufgebaut
+                    ist.
+                </p>
+            </article>
+
+            <article class="hs_project_card">
+                <h3 class="hs_project_card_title">Ziel</h3>
+                <p class="hs_project_text">
+                    Ziel war es, eine stabile und erweiterbare Home-Server-
+                    Umgebung aufzubauen, die verschiedene containerbasierte
+                    Dienste unterstützt und gleichzeitig eine gute Grundlage für
+                    zukünftige Projekte bietet.
+                </p>
+            </article>
+        </div>
+    </section>
+
+    <section class="hs_project_section">
+        <div class="hs_project_section_head">
+            <p class="hs_project_eyebrow">Umsetzung</p>
+            <h2 class="hs_project_section_title">Was ich gemacht habe</h2>
+        </div>
+
+        <div class="hs_project_feature_list">
+            <article class="hs_project_feature">
+                <h3 class="hs_project_feature_title">Proxmox</h3>
+                <p class="hs_project_text">
+                    Als Basis wurde eine Proxmox-Umgebung eingesetzt, die als
+                    Hypervisor dient. Dadurch lassen sich mehrere Systeme
+                    parallel betreiben, klar voneinander trennen und zentral
+                    verwalten, was eine flexible und skalierbare Infrastruktur
+                    ermöglicht.
+                </p>
+            </article>
+
+            <article class="hs_project_feature">
+                <h3 class="hs_project_feature_title">Firewall - pfSense</h3>
+                <p class="hs_project_text">
+                    Zur Erhöhung der Sicherheit wurde eine pfSense als zentrale
+                    Firewall eingerichtet. Sie übernimmt die Kontrolle über den
+                    Netzwerkverkehr, ermöglicht eine klare Segmentierung und
+                    sorgt für eine strukturierte Absicherung der gesamten
+                    Umgebung.
+                </p>
+            </article>
+
+            <article class="hs_project_feature">
+                <h3 class="hs_project_feature_title">Netzwerk & Zugriff</h3>
+                <p class="hs_project_text">
+                    Der Zugriff auf die Umgebung wurde bewusst über eine
+                    VPN-Lösung umgesetzt. Dadurch sind die Dienste nicht direkt
+                    aus dem Internet erreichbar, sondern nur über eine sichere
+                    Verbindung zugänglich, was die Gesamtarchitektur deutlich
+                    erhöht.
+                </p>
+            </article>
+
+            <article class="hs_project_feature">
+                <h3 class="hs_project_feature_title">
+                    Testing & Erweiterbarkeit
+                </h3>
+                <p class="hs_project_text">
+                    Die Umgebung wurde bewusst modular gestaltet, damit neue
+                    Services jederzeit hinzugefügt und getestet werden können,
+                    ohne bestehende Systeme zu beeinträchtigen.
+                </p>
+            </article>
+        </div>
+    </section>
+
+    <section class="hs_project_section">
+        <div class="hs_project_section_head">
+            <p class="hs_project_eyebrow">Einsicht</p>
+            <h2 class="hs_project_section_title">Proxmox Übersicht & Server</h2>
+        </div>
+
+        <div class="hs_project_ba_grid">
+            <article class="hs_project_ba_card">
+                <div class="hs_project_ba_card_header">
+                    <h3 class="hs_project_ba_title">Proxmox Dashboard</h3>
+                    <p class="hs_project_ba_text">
+                        Das ist das Dashboard meiner Proxmox-Umgebung. Hier sind
+                        bereits mehrere virtuelle Maschinen eingerichtet,
+                        darunter auch die pfSense-Firewall. Alle Systeme folgen
+                        einem einheitlichen Namensschema, was die Verwaltung und
+                        Übersicht deutlich vereinfacht.
+                    </p>
+                </div>
+
+                <div class="hs_project_ba_image_wrap">
+                    <img
+                        src="/images/website-frauenverein-sarmenstorf_old.png"
+                        alt="Frühere Version der Home-Server-Umgebung"
+                        class="hs_project_ba_image"
+                    />
+                </div>
+            </article>
+
+            <article class="hs_project_ba_card">
+                <div class="hs_project_ba_card_header">
+                    <h3 class="hs_project_ba_title">Server</h3>
+                    <p class="hs_project_ba_text">
+                        Als Server dient ein älterer PC mit einem i7-8700T, 16
+                        GB RAM und einer 500 GB SSD. Die Leistung ist zwar
+                        begrenzt, reicht jedoch problemlos aus, um mehrere
+                        virtuelle Maschinen parallel zu betreiben. <br />&nbsp
+                    </p>
+                </div>
+
+                <div class="hs_project_ba_image_wrap">
+                    <img
+                        src="/images/website-frauenverein-sarmenstorf_new.png"
+                        alt="Neue Version der Home-Server-Umgebung"
+                        class="hs_project_ba_image"
+                    />
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <section class="hs_project_section">
+        <div class="hs_project_section_head">
+            <p class="hs_project_eyebrow">Ergebnis</p>
+            <h2 class="hs_project_section_title">Mehrwert des Projekts</h2>
+        </div>
+
+        <div class="hs_project_result_box">
+            <p class="hs_project_text">
+                Das Resultat ist eine flexible und leistungsfähige
+                Home-Server-Umgebung, die als zentrale Plattform für Tests,
+                eigene Dienste und Lernzwecke dient. Dadurch können neue
+                Technologien effizient ausprobiert und praktische Erfahrungen im
+                Betrieb moderner Systeme gesammelt werden, was mich gezielt in
+                meiner Lehre im Bereich Informatik unterstützt und mein
+                Verständnis für reale Infrastrukturen vertieft.
+            </p>
+        </div>
+    </section>
+
+    <section class="hs_project_section">
+        <div class="hs_project_back_wrap">
+            <a href="/projects" class="hs_project_back_link">
+                Zurück zu allen Projekten
+            </a>
         </div>
     </section>
 </BaseLayout>

@@ -1,0 +1,320 @@
+/* ======================================================
+   websites.css
+   Seitenspezifische Styles für websites.astro
+   Nur Klassen die NICHT in global.css vorhanden sind.
+   Präfix: web_
+   ====================================================== */
+
+/* =========
+   Layout-Wrapper
+   ========= */
+
+.web_detail {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* =========
+   Backlink
+   ========= */
+
+.web_backlink {
+  margin-bottom: 1.5rem;
+}
+
+.web_backlink a {
+  color: var(--color-text-muted);
+}
+
+/* =========
+   Hero
+   ========= */
+
+.web_hero {
+  margin-bottom: 2rem;
+}
+
+.web_eyebrow {
+  margin: 0;
+  font-size: 0.85rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.web_title {
+  margin: 0;
+  font-size: clamp(2.2rem, 4vw, 4rem);
+  line-height: 1.3;
+  color: var(--color-heading);
+}
+
+.web_intro {
+  margin: 0;
+  color: var(--color-text);
+  max-width: 760px;
+  font-size: 1.02rem;
+}
+
+.web_actions {
+  margin-top: 1.5rem;
+}
+
+.web_button {
+  display: inline-block;
+  padding: 0.85rem 1.25rem;
+  border-radius: var(--radius-main);
+  background: var(--color-primary);
+  color: var(--color-heading);
+  font-weight: 600;
+  border: 1px solid transparent;
+  transition: transform 180ms ease, border-color 180ms ease, opacity 180ms ease;
+}
+
+.web_button:hover {
+  transform: translateY(-2px);
+  border-color: var(--color-heading);
+  text-decoration: none;
+}
+
+/* =========
+   Sections & Panels
+   ========= */
+
+.web_section {
+  margin-top: 1.5rem;
+}
+
+.web_panel,
+.web_cta-panel {
+  border: 1px solid var(--color-border);
+  background: var(--color-surface-soft);
+  border-radius: var(--radius-main);
+  padding: 1.35rem;
+}
+
+.web_cta-panel {
+  margin-top: 2rem;
+}
+
+.web_section-title {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.web_text {
+  margin: 0;
+  color: var(--color-text);
+  padding-bottom: 1.5rem;
+}
+
+.web_text-link {
+  display: inline-block;
+  margin-top: 0.9rem;
+  font-weight: 600;
+}
+
+/* =========
+   Chip-Liste
+   ========= */
+
+.web_chip-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1rem 0;
+}
+
+.web_chip-list li {
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-text);
+  border-radius: var(--radius-main);
+  padding: 0.35rem 0.7rem;
+  font-size: 0.92rem;
+}
+
+/* =========
+   Split-Grid (2 Panels nebeneinander)
+   ========= */
+
+.web_split {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+/* =========
+   Feature-Liste (mit Icon)
+   ========= */
+
+.web_feature-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.web_feature-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-size: 0.95rem;
+  color: var(--color-text);
+}
+
+.web_feature-icon {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.95rem;
+  background: color-mix(in srgb, var(--color-surface) 70%, transparent);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-main);
+  color: var(--color-heading);
+}
+
+/* =========
+   Ablauf-Schritte
+   ========= */
+
+.web_steps {
+  display: grid;
+  gap: 0;
+}
+
+.web_step {
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.web_step:first-child {
+  padding-top: 0;
+}
+
+.web_step:last-child {
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.web_step-header {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  margin-bottom: 0.35rem;
+}
+
+.web_step-num {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--color-text-muted);
+  flex-shrink: 0;
+}
+
+.web_step-title {
+  margin: 0;
+  font-size: 1rem;
+  color: var(--color-heading);
+}
+
+.web_step-text {
+  margin: 0;
+  color: var(--color-text);
+  font-size: 0.93rem;
+  padding-left: calc(0.75rem + 1.5rem); /* Einrückung unter Titel */
+}
+
+/* =========
+   Vorteile-Grid (mit Icon)
+   ========= */
+
+.web_benefits {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.web_benefit {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  border: 1px solid var(--color-border);
+  background: color-mix(in srgb, var(--color-surface) 55%, transparent);
+  border-radius: var(--radius-main);
+  padding: 1rem;
+}
+
+.web_benefit-icon {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  background: color-mix(in srgb, var(--color-surface) 70%, transparent);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-main);
+  color: var(--color-heading);
+}
+
+.web_benefit-title {
+  margin: 0 0 0.35rem 0;
+  font-size: 1rem;
+}
+
+.web_benefit-text {
+  margin: 0;
+  color: var(--color-text);
+  font-size: 0.93rem;
+}
+
+/* =========
+   Preisgestaltung
+   ========= */
+
+.web_pricing-text p {
+  margin-top: 0;
+}
+
+.web_pricing-text p:last-child {
+  margin-bottom: 0;
+}
+
+/* =========
+   Responsive
+   ========= */
+
+@media (max-width: 900px) {
+  .web_benefits {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 700px) {
+  .web_split {
+    grid-template-columns: 1fr;
+  }
+
+  .web_title {
+    font-size: 2.3rem;
+  }
+
+  .web_panel,
+  .web_cta-panel {
+    padding: 1.1rem;
+  }
+
+  .web_step-text {
+    padding-left: 0;
+  }
+}
